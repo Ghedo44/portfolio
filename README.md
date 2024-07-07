@@ -1,6 +1,8 @@
 # Portfolio
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.10.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
+
+It is a simple portfolio website that showcases my skills and projects. It is a single page application that is responsive and can be viewed on any device. The website is hosted on GitHub Pages and can be accessed [here](https://ghedo44.github.io/portfolio/).
 
 ## Development server
 
