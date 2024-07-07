@@ -1,1 +1,81 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.btn {
+    @apply font-bold py-2 px-4 rounded;
+
+    &.btn-primary {
+        @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+
+        &:hover {
+            @apply bg-blue-600;
+        }
+    }
+
+    &.btn-secondary {
+        @apply bg-white text-blue-500 font-bold py-2 px-4 rounded;
+
+        &:hover {
+            @apply bg-gray-200;
+        }
+    }
+
+    &.btn-outline {
+        @apply bg-transparent border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white;
+    }
+
+}
+
+
+
+@layer components {
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--rounded-box, 1rem);
+}
+.card-body {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: var(--padding-card, 2rem);
+    gap: .5rem;
+}
+
+.card figure {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.card-side {
+    align-items: stretch;
+    flex-direction: row;
+}
+
+.card-side :where(figure:first-child) {
+    overflow: hidden;
+    border-start-start-radius: inherit;
+    border-start-end-radius: unset;
+    border-end-start-radius: inherit;
+    border-end-end-radius: unset;
+}
+.card :where(figure:first-child) {
+    overflow: hidden;
+    border-start-start-radius: inherit;
+    border-start-end-radius: inherit;
+    border-end-start-radius: unset;
+    border-end-end-radius: unset;
+}
+
+
+.card-side figure>* {
+    max-width: unset;
+}
+.card-side figure>* {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+}
