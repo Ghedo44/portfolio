@@ -5,31 +5,89 @@ on:
     branches:
     - master
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+
 jobs:
-  deploy:
+
+  build:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
+      #    - name: SonarQube Backend Scan
+      #      uses: kitabisa/sonarqube-action@v1.2.1
 
-    - name: Install dependencies
-      run: npm install
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
 
-    # - name: Run tests
-    #   run: npm run test:headless
+      - name: Install Dependencies
+        working-directory: .
+        run: npm install
 
-    - name: Build
-      run: npm run build:prod
+      - name: Build
+        working-directory: .
+        run: npm run build --if-present
 
-    - name: Deploy
-      if: success()
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: dist/portfolio
-        enable_jekyll: true
+      #    - name: Test
+      #      working-directory: src/main/frontend
+      #      run: npm test
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Upload entire repository
+          path: './dist/portfolio/browser/'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: Checkout
+#       uses: actions/checkout@v2
+
+#     - name: Setup Node.js
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: '20'
+
+#     - name: Install dependencies
+#       run: npm install
+
+#     # - name: Run tests
+#     #   run: npm run test:headless
+
+#     - name: Build
+#       run: npm run build:prod
+
+#     - name: Deploy
+#       if: success()
+#       uses: peaceiris/actions-gh-pages@v3
+#       with:
+#         github_token: ${{ secrets.GITHUB_TOKEN }}
+#         publish_dir: dist/portfolio
+#         enable_jekyll: true
