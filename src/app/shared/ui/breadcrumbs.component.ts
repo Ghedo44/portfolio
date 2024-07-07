@@ -19,19 +19,19 @@ export interface Breadcrumb {
 		<ng-container *ngIf="breadcrumbs() as breadcrumbs">
 			<nav
 				*ngIf="breadcrumbs && breadcrumbs.length > 0"
-				class="flex items-center mb-4 text-sm text-gray-800 space-x-1"
+				class="flex items-center mb-4 text-md font-semibold text-gray-800 space-x-1"
 			>
 				<a
-					class="rounded focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2"
+					class="rounded focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 hover:underline underline-offset-2"
 					[href]="breadcrumbs[0].url"
 					[routerLink]="breadcrumbs[0].url"
 				>
 					{{ breadcrumbs[0].label }}
 				</a>
 				<ng-container *ngFor="let breadcrumb of breadcrumbs.slice(1, breadcrumbs.length); let last = last">
-					>
+					<span class="px-1">></span>
 					<a
-						class="rounded focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2"
+						class="rounded focus-visible:ring-ring focus-visible:outline-none focus-visible:ring-2 hover:underline underline-offset-2"
 						[class]="last ? 'text-black' : 'text-gray-800'"
 						[href]="breadcrumb.url"
 						[routerLink]="breadcrumb.url"
