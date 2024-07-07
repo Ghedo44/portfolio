@@ -8,8 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:portfolio": "node dist/portfolio/server/server.mjs",
-    "build:prod": "ng build --configuration production --base-href https://ghedo44.github.io/portfolio/",
-    "test:headless": "ng test --watch=false --browsers=ChromeHeadless"
+    "build:prod": "ng build --configuration production --base-href /portfolio/"
   },
   "private": true,
   "dependencies": {
