@@ -1,6 +1,7 @@
 import { Component, ElementRef, HostListener, inject, OnDestroy, viewChildren } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ViewManagerService, Section } from '../shared/data-access/view-manager.service';
+import { SeoService } from '../shared/data-access/seo.service';
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,14 @@ import { ViewManagerService, Section } from '../shared/data-access/view-manager.
 })
 export class HomeComponent implements OnDestroy {
   vms = inject(ViewManagerService);
+  ss = inject(SeoService);
 
   // Sections
   sections = viewChildren<ElementRef>('section');
+
+  constructor() {
+    this.ss.generateTags({});
+  }
 
   @HostListener('window:scroll', ['$event'])
   onScroll(e: Event) {

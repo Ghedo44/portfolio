@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { SeoService } from '../../shared/data-access/seo.service';
 
 @Component({
   selector: 'app-introduction',
@@ -14,5 +15,13 @@ import { Component } from '@angular/core';
   styles: ``
 })
 export class IntroductionComponent {
+  ss = inject(SeoService);
 
+	constructor() {
+		this.ss.generateTags({
+			title: `Federico Ghedini - Introduction`,
+			description: 'Get to know me a little bit better.',
+			slug: 'introduction',
+		});
+	}
 }
