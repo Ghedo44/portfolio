@@ -12,10 +12,10 @@ import { NgClass } from '@angular/common';
   // },
   template: `
     <div class="h-16">
-      <header #header class="h-16 fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/65 transition-shadow">
+      <header #header class="h-16 md:fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/85 transition-shadow">
         <div class="container mx-auto flex justify-between items-center h-full px-6">
             <a routerLink="/" class="font-bold text-xl text-gray-800">Federico Ghedini</a>
-            <nav class="space-x-4">
+            <nav class="space-x-4 hidden md:block">
                 <a routerLink="/" fragment="about" [ngClass]="vms.currentSection() === section.About ? 'text-blue-700' : 'text-gray-600'" class="hover:text-blue-500 font-semibold transition-all">About</a>
                 <a routerLink="/" fragment="projects" [ngClass]="vms.currentSection() === section.Projects ? 'text-blue-700' : 'text-gray-600'" class="hover:text-blue-500 font-semibold transition-all">Projects</a>
                 <a routerLink="/" fragment="skills" [ngClass]="vms.currentSection() === section.Skills ? 'text-blue-700' : 'text-gray-600'" class="hover:text-blue-500 font-semibold transition-all">Skills</a>

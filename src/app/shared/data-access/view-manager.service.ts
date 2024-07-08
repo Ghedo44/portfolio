@@ -28,12 +28,15 @@ export class ViewManagerService {
 
   // Actions
   setCurrentSection$ = new Subject<Section>();
-  // removeSection$ = new Subject<Section>();
+  removeSection$ = new Subject<Section>();
 
   constructor() {
-    // this.removeSection$.subscribe((section) => {
-    //   this.sectionStack.update((state) => state.filter((s) => s !== section));
-    // });
+    this.removeSection$.subscribe((section) => {
+      // this.sectionStack.update((state) => state.filter((s) => s !== section));
+      this.state.update((state) => ({
+        ...state, currentSection: undefined
+      }));
+    });
 
     this.setCurrentSection$.subscribe((section) => {
       // if (this.sectionStack()[this.sectionStack().length - 1] === section) return;

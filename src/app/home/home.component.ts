@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener, inject, viewChildren } from '@angular/core';
+import { Component, ElementRef, HostListener, inject, OnDestroy, viewChildren } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ViewManagerService, Section } from '../shared/data-access/view-manager.service';
 
@@ -9,7 +9,7 @@ import { ViewManagerService, Section } from '../shared/data-access/view-manager.
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnDestroy {
   vms = inject(ViewManagerService);
 
   // Sections
@@ -25,5 +25,9 @@ export class HomeComponent {
     if (section) {
       this.vms.setCurrentSection$.next(section.nativeElement.id as Section);
     }
+  }
+
+  ngOnDestroy() {
+    this.vms.removeSection$.next(Section.Hero);
   }
 }
