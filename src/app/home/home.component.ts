@@ -25,7 +25,7 @@ export class HomeComponent implements OnDestroy {
   onScroll(e: Event) {
     const section = this.sections().find((section) => {
       const rect = section.nativeElement.getBoundingClientRect();
-      return rect.top < window.innerHeight * 0.3 && rect.top > 0;// && rect.bottom > window.innerHeight * 0.1;
+      return rect.top < window.innerHeight * 0.3 && rect.top > 0;
     });
 
     if (section) {
@@ -34,6 +34,6 @@ export class HomeComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.vms.removeSection$.next(Section.Hero);
+    this.vms.removeSection$.next();
   }
 }

@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   host: {
-    class: 'mt-auto',
+    class: 'mt-auto pt-8',
   },
   template: `
     <footer class="p-10 bg-gray-800 text-white rounded-md">

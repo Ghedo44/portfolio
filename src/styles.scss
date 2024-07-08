@@ -88,3 +88,46 @@ html, body {
     object-fit: cover;
 }
 }
+
+
+// Input
+.input {
+    flex-shrink: 1;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1rem;
+    line-height: 2;
+    line-height: 1.5rem;
+    border-radius: var(--rounded-btn, .5rem);
+    border-width: 1px;
+    border-color: transparent;
+    --tw-bg-opacity: 1;
+    background-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-bg-opacity)));
+}
+.input-bordered {
+    border-color: rgba($color: #bdbdbd, $alpha: 1.0);
+}
+
+.textarea {
+    min-height: 3rem;
+    flex-shrink: 1;
+    padding: .5rem 1rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    line-height: 2;
+    border-radius: var(--rounded-btn, .5rem);
+    border-width: 1px;
+    border-color: transparent;
+    --tw-bg-opacity: 1;
+    background-color: var(--fallback-b1, oklch(var(--b1) / var(--tw-bg-opacity)));
+}
+.textarea-bordered {
+    border-color: rgba($color: #bdbdbd, $alpha: 1.0);
+}
+textarea {
+    resize: vertical;
+}

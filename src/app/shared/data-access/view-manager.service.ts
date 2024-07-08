@@ -21,39 +21,25 @@ export class ViewManagerService {
 
   // State
   private readonly state = signal<ViewManagerState>({});
-  private sectionStack = signal<Section[]>([]);
 
   // Selectors
   readonly currentSection = computed(() => this.state().currentSection);
 
   // Actions
   setCurrentSection$ = new Subject<Section>();
-  removeSection$ = new Subject<Section>();
+  removeSection$ = new Subject<void>();
 
   constructor() {
-    this.removeSection$.subscribe((section) => {
-      // this.sectionStack.update((state) => state.filter((s) => s !== section));
+    this.removeSection$.subscribe(() => {
       this.state.update((state) => ({
         ...state, currentSection: undefined
       }));
     });
 
     this.setCurrentSection$.subscribe((section) => {
-      // if (this.sectionStack()[this.sectionStack().length - 1] === section) return;
-      // this.sectionStack.update((state) => {
-      //   return [...state, section];
-      // });
       this.state.update((state) => ({
         ...state, currentSection: section
       }));
     });
-
-    // effect(() => {
-    //   const sections = this.sectionStack();
-    //   console.log(sections);
-    //   this.state.update((state) => ({
-    //     ...state, currentSection: sections[sections.length - 1]
-    //   }));
-    // }, {allowSignalWrites: true});
   }
 }
