@@ -72,7 +72,7 @@ To set up the project locally, follow these steps:
    ```typescript
    // src/environments/environment.ts
    export const environment = {
-     production: false,
+     production: true,
      firebaseConfig: {
        apiKey: "YOUR_FIREBASE_API_KEY",
        authDomain: "YOUR_FIREBASE_AUTH_DOMAIN",
@@ -84,12 +84,12 @@ To set up the project locally, follow these steps:
    };
    ```
 
-   Also, create a `environment.prod.ts` for the production environment:
+   Also, create a `environment.development.ts` for the development environment:
 
    ```typescript
-   // src/environments/environment.prod.ts
+   // src/environments/environment.development.ts
    export const environment = {
-     production: true,
+     production: false,
      firebaseConfig: {
        apiKey: "YOUR_FIREBASE_API_KEY",
        authDomain: "YOUR_FIREBASE_AUTH_DOMAIN",
@@ -115,7 +115,7 @@ Ensure that your `environment.ts` files are not tracked by version control by ad
 ```
 # Angular environment files
 /src/environments/environment.ts
-/src/environments/environment.prod.ts
+/src/environments/environment.development.ts
 ```
 
 ## Deployment
