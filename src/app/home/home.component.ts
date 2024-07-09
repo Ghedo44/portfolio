@@ -2,11 +2,12 @@ import { Component, ElementRef, HostListener, inject, OnDestroy, viewChildren } 
 import { RouterLink } from '@angular/router';
 import { ViewManagerService, Section } from '../shared/data-access/view-manager.service';
 import { SeoService } from '../shared/data-access/seo.service';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, NgOptimizedImage],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
