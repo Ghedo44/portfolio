@@ -1,5 +1,6 @@
 export const environment = {
     production: false,
+    recaptcha3SiteKey: '6LcO2AwqAAAAAIQN58P9rFxf-Zl1BG90pw92KA33',
     turnstileSiteKey: '0x4AAAAAAAexZARCghRsEh7-',
     firebaseConfig: {
         apiKey: "AIzaSyAA_9ynYVWJu9_evgFZOuTPDepjDQjyIkM",
