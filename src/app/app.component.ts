@@ -20,7 +20,7 @@ import { AppCheck } from '@angular/fire/app-check';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  private appCheck = inject(AppCheck);
+  // private appCheck = inject(AppCheck);
 
   title = 'portfolio';
 }
