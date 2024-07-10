@@ -1,6 +1,6 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { addDoc, collection, Firestore } from '@angular/fire/firestore';
+import { addDoc, collection, Firestore, serverTimestamp } from '@angular/fire/firestore';
 import { Subject, switchMap, tap } from 'rxjs';
 
 interface HomeState {
@@ -26,6 +26,8 @@ export class HomeService {
         name,
         email,
         message,
+        status: 'new', // 'new' | 'readed' | 'answered'
+        createdAt: serverTimestamp()
       });
     })
   )
