@@ -10,14 +10,15 @@ html, body {
 .btn {
     @apply font-bold py-2 px-4 rounded-lg transition-all duration-200;
 
-    &:hover {
+    // hover and not disabled
+    &:not(:disabled):hover {
         @apply shadow-md rounded-xl scale-105;
     }
 
     &.btn-primary {
         @apply bg-blue-500 text-white;
 
-        &:hover {
+        &:not(:disabled):hover {
             @apply bg-blue-600;
         }
     }
@@ -25,7 +26,7 @@ html, body {
     &.btn-secondary {
         @apply bg-white text-blue-500;
 
-        &:hover {
+        &:not(:disabled):hover {
             @apply bg-gray-200;
         }
     }
@@ -39,7 +40,7 @@ html, body {
         @apply bg-gray-300 text-gray-500 cursor-not-allowed;
 
         &:hover {
-            @apply bg-gray-300 text-gray-500 scale-100;
+            @apply outline outline-1 outline-red-700 transition-none;
         }
     }
 
