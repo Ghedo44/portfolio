@@ -101,7 +101,6 @@ To set up the project locally, follow these steps:
    };
    ```
 
-   <!-- Turnstile configuration in environment -->
    You should also add your Turnstile configuration to the `environment.ts` file:
 
    ```typescript
@@ -114,6 +113,8 @@ To set up the project locally, follow these steps:
     ```
 
     Update also the `environment.development.ts` file. 
+
+    **Note:** The Turnstile configuration is used to prevent spam submissions on the contact form. You can get your Turnstile site key by signing up at cloudflare. If you don't want to use Turnstile, you can remove the Turnstile component from the contact form.
 
 5. **Serve the application locally:**
    ```bash
