@@ -1,6 +1,7 @@
 import { Directive, forwardRef, OnInit } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TurnstileComponent } from './turnstile.component';
+import { outputToObservable } from '@angular/core/rxjs-interop';
 
 @Directive({
   selector: '[turnstile[formControl], turnstile[formControlName], turnstile[ngModel]]',
@@ -15,14 +16,14 @@ import { TurnstileComponent } from './turnstile.component';
 })
 export class TurnstileValueAccessorDirective implements ControlValueAccessor, OnInit {
 
-  private onChange!: (value: string) => void;
+  private onChange!: (value: string | null) => void;
   private onTouched!: () => void;
   private resolved: boolean = false;
 
   constructor(private turnstileComp: TurnstileComponent) {}
 
   ngOnInit(): void {
-    this.turnstileComp.resolved.subscribe((token: string) => {
+    outputToObservable(this.turnstileComp.resolved).subscribe((token: string | null) => {
       this.resolved = !!token;
 
       if (this.onChange) {

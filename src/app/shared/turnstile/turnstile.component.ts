@@ -1,4 +1,4 @@
-import { InjectionToken, signal } from '@angular/core';
+import { InjectionToken } from '@angular/core';
 
 export const WINDOW = new InjectionToken<Window>('WindowToken', {
   factory: () => {
@@ -15,12 +15,12 @@ import {
   AfterViewInit,
   ElementRef,
   NgZone,
-  Output,
-  EventEmitter,
   OnDestroy,
   ChangeDetectionStrategy,
   inject, 
-  input
+  input, 
+  output, 
+  signal
 } from '@angular/core';
 import { TurnstileOptions } from './turnstile.interfaces';
 import { DOCUMENT } from '@angular/common';
@@ -49,7 +49,6 @@ type SupportedVersion = '0';
   standalone: true,
   imports: [],
   template: ``,
-  styles: [``],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TurnstileComponent implements AfterViewInit, OnDestroy {
@@ -63,8 +62,8 @@ export class TurnstileComponent implements AfterViewInit, OnDestroy {
   appearance = input<'always' | 'execute' | 'interaction-only'>('always');
 
   // Outputs
-  @Output() resolved = new EventEmitter<string | null>();
-  @Output() errored = new EventEmitter<string | null>();
+  resolved = output<string | null>();
+  errored = output<string | null>();
 
   // Private
   private widgetId = signal('');
