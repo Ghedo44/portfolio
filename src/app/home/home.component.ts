@@ -5,11 +5,12 @@ import { SeoService } from '../shared/data-access/seo.service';
 import { NgOptimizedImage } from '@angular/common';
 import { TurnstileComponent } from '../shared/turnstile/turnstile.component';
 import { TurnstileValueAccessorDirective } from '../shared/turnstile/turnstile-value-accessor.directive';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, NgOptimizedImage, TurnstileComponent, TurnstileValueAccessorDirective],
+  imports: [RouterLink, NgOptimizedImage, TurnstileComponent, TurnstileValueAccessorDirective, ReactiveFormsModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -17,8 +18,17 @@ export class HomeComponent implements OnDestroy {
   vms = inject(ViewManagerService);
   ss = inject(SeoService);
 
+  siteKey = '0x4AAAAAAAexZARCghRsEh7-';
+
   // Sections
   sections = viewChildren<ElementRef>('section');
+
+  form = new FormGroup({
+    name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    message: new FormControl('', [Validators.required]),
+    tokenControl: new FormControl(false, [Validators.required, Validators.requiredTrue])
+  });
 
   constructor() {
     this.ss.generateTags({});
@@ -38,10 +48,5 @@ export class HomeComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.vms.removeSection$.next();
-  }
-
-  siteKey = '0x4AAAAAAAexZARCghRsEh7-';
-  sendCaptchaResponse(captchaResponse: string | null) {
-    console.log(`Resolved captcha with response: ${captchaResponse}`);
   }
 }
