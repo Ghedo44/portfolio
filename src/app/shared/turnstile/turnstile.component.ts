@@ -1,4 +1,4 @@
-import { InjectionToken } from '@angular/core';
+import { InjectionToken, signal } from '@angular/core';
 
 export const WINDOW = new InjectionToken<Window>('WindowToken', {
   factory: () => {
@@ -10,18 +10,17 @@ export const WINDOW = new InjectionToken<Window>('WindowToken', {
 });
 
 
-
 import {
   Component,
   AfterViewInit,
   ElementRef,
-  Input,
   NgZone,
   Output,
   EventEmitter,
   OnDestroy,
   ChangeDetectionStrategy,
-  inject,
+  inject, 
+  input
 } from '@angular/core';
 import { TurnstileOptions } from './turnstile.interfaces';
 import { DOCUMENT } from '@angular/common';
@@ -54,43 +53,44 @@ type SupportedVersion = '0';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TurnstileComponent implements AfterViewInit, OnDestroy {
-  @Input() siteKey!: string;
-  @Input() action?: string;
-  @Input() cData?: string;
-  @Input() theme?: 'light' | 'dark' | 'auto' = 'auto';
-  @Input() version: SupportedVersion = '0';
-  @Input() tabIndex?: number;
-  @Input() appearance?: 'always' | 'execute' | 'interaction-only' = 'always';
+  // Inputs
+  siteKey = input.required<string>();
+  action = input<string>();
+  cData = input<string>();
+  theme = input<'light' | 'dark' | 'auto'>('auto');
+  version = input<SupportedVersion>('0');
+  tabIndex = input<number>();
+  appearance = input<'always' | 'execute' | 'interaction-only'>('always');
 
+  // Outputs
   @Output() resolved = new EventEmitter<string | null>();
   @Output() errored = new EventEmitter<string | null>();
 
-  private widgetId!: string;
+  // Private
+  private widgetId = signal('');
 
+  // Injected
   private document = inject(DOCUMENT);
   private window = inject(WINDOW);
+  private elementRef = inject(ElementRef);
+  private zone = inject(NgZone);
 
-  constructor(
-    private elementRef: ElementRef<HTMLElement>,
-    private zone: NgZone,
-  ) {}
 
   private _getCloudflareTurnstileUrl(): string {
-    if (this.version === '0') {
+    if (this.version() === '0') {
       return 'https://challenges.cloudflare.com/turnstile/v0/api.js';
     }
-
     throw 'Version not defined in ngx-turnstile component.';
   }
 
   public ngAfterViewInit(): void {
     let turnstileOptions: TurnstileOptions = {
-      sitekey: this.siteKey,
-      theme: this.theme,
-      tabindex: this.tabIndex,
-      action: this.action,
-      cData: this.cData,
-      appearance: this.appearance,
+      sitekey: this.siteKey(),
+      theme: this.theme(),
+      tabindex: this.tabIndex(),
+      action: this.action(),
+      cData: this.cData(),
+      appearance: this.appearance(),
       callback: (token: string) => {
         this.zone.run(() => this.resolved.emit(token));
       },
@@ -111,10 +111,10 @@ export class TurnstileComponent implements AfterViewInit, OnDestroy {
         return;
       }
 
-      this.widgetId = this.window.turnstile.render(
+      this.widgetId.set(this.window.turnstile.render(
         this.elementRef.nativeElement,
         turnstileOptions,
-      );
+      ));
     };
 
     script.src = `${this._getCloudflareTurnstileUrl()}?render=explicit&onload=${CALLBACK_NAME}`;
@@ -124,15 +124,15 @@ export class TurnstileComponent implements AfterViewInit, OnDestroy {
   }
 
   public reset(): void {
-    if (this.widgetId) {
+    if (this.widgetId()) {
       this.resolved.emit(null);
-      this.window.turnstile.reset(this.widgetId);
+      this.window.turnstile.reset(this.widgetId());
     }
   }
 
   public ngOnDestroy(): void {
-    if (this.widgetId) {
-      this.window.turnstile.remove(this.widgetId);
+    if (this.widgetId()) {
+      this.window.turnstile.remove(this.widgetId());
     }
   }
 }
