@@ -101,6 +101,20 @@ To set up the project locally, follow these steps:
    };
    ```
 
+   <!-- Turnstile configuration in environment -->
+   You should also add your Turnstile configuration to the `environment.ts` file:
+
+   ```typescript
+    // src/environments/environment.ts
+    export const environment = {
+      production: true,
+      firebaseConfig: ...,
+      turnstileSiteKey: "YOUR TURNSTILE SITE KEY",
+    };
+    ```
+
+    Update also the `environment.development.ts` file. 
+
 5. **Serve the application locally:**
    ```bash
    ng serve

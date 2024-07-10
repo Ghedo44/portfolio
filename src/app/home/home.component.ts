@@ -6,6 +6,7 @@ import { NgOptimizedImage } from '@angular/common';
 import { TurnstileComponent } from '../shared/turnstile/turnstile.component';
 import { TurnstileValueAccessorDirective } from '../shared/turnstile/turnstile-value-accessor.directive';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnDestroy {
   vms = inject(ViewManagerService);
   ss = inject(SeoService);
 
-  siteKey = '0x4AAAAAAAexZARCghRsEh7-';
+  siteKey = environment.turnstileSiteKey;
 
   // Sections
   sections = viewChildren<ElementRef>('section');
