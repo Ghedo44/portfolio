@@ -121,6 +121,14 @@
                     <textarea id="message" name="message" class="textarea textarea-bordered w-full" rows="4"
                         required placeholder="Type your message here."></textarea>
                 </div>
+                <div class="mb-4">
+                    <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
+                    <turnstile 
+                        [siteKey]="siteKey" 
+                        (resolved)="sendCaptchaResponse($event)" 
+                        theme="auto" 
+                        [tabIndex]="0"></turnstile>
+                </div>
                 <button type="submit" class="w-full btn btn-primary">Send Message</button>
             </form>
         </div>

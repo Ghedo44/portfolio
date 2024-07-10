@@ -3,11 +3,13 @@ import { RouterLink } from '@angular/router';
 import { ViewManagerService, Section } from '../shared/data-access/view-manager.service';
 import { SeoService } from '../shared/data-access/seo.service';
 import { NgOptimizedImage } from '@angular/common';
+import { TurnstileComponent } from '../shared/turnstile/turnstile.component';
+import { TurnstileValueAccessorDirective } from '../shared/turnstile/turnstile-value-accessor.directive';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, NgOptimizedImage],
+  imports: [RouterLink, NgOptimizedImage, TurnstileComponent, TurnstileValueAccessorDirective],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -36,5 +38,10 @@ export class HomeComponent implements OnDestroy {
 
   ngOnDestroy() {
     this.vms.removeSection$.next();
+  }
+
+  siteKey = '0x4AAAAAAAexZARCghRsEh7-';
+  sendCaptchaResponse(captchaResponse: string | null) {
+    console.log(`Resolved captcha with response: ${captchaResponse}`);
   }
 }
