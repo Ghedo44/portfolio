@@ -8,11 +8,19 @@ import { TurnstileValueAccessorDirective } from '../shared/turnstile/turnstile-v
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { environment } from '../../environments/environment';
 import { HomeService } from './data-access/home.service';
+import { ProjectCardComponent } from '../shared/ui/project-card.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterLink, NgOptimizedImage, TurnstileComponent, TurnstileValueAccessorDirective, ReactiveFormsModule],
+  imports: [
+    RouterLink, 
+    NgOptimizedImage, 
+    TurnstileComponent, 
+    TurnstileValueAccessorDirective, 
+    ReactiveFormsModule,
+    ProjectCardComponent
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

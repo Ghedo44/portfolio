@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { SeoService } from '../shared/data-access/seo.service';
+import { ProjectCardComponent } from '../shared/ui/project-card.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [RouterLink],
+  imports: [ProjectCardComponent],
   templateUrl: './projects.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

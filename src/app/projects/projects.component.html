@@ -1,18 +1,13 @@
 <main class="container mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        <!-- Project 1 -->
         @for (item of [1,2,3,4,5,6,7,8,9,10]; let idx = $index; track idx) {
-            <div routerLink="/projects/introduction" class="bg-white card shadow-md hover:scale-95 transition-all duration-300 group">
-                <figure>
-                    <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-                        alt="Project 1" class="rotate-2 scale-105 group-hover:rotate-0 group-hover:scale-100 transition-all duration-300">
-                </figure>
-                <div class="card-body">
-                    <h3 class="text-2xl font-bold text-gray-800">Project Title {{idx + 1}}</h3>
-                    <p class="mt-4 text-gray-600">Brief description of the project and your role in it. Highlight
-                        the technologies and methodologies used.</p>
-                </div>
-            </div>
+            <app-project-card projectLink="/projects/introduction" imageUrl="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg">
+                <ng-container title>Project Title {{idx + 1}}</ng-container>
+                <ng-container>
+                    <p>Brief description of the project and your role in it. Highlight
+                    the technologies and methodologies used.</p>
+                </ng-container>
+            </app-project-card>
         }
     </div>
 </main>
