@@ -59,7 +59,7 @@ To set up the project locally, follow these steps:
 
 4. **Set up environment variables:**
 
-   Create a file named `environment.ts` inside the `src/environments` directory. This file should contain your Firebase and any other API keys. **Note:** This file should not be committed to version control.
+   Create a file named `environment.ts` inside the `src/environments` directory. This file should contain your Firebase and any other keys.
 
    You can use Angular's schematic to create the file:
 
@@ -123,15 +123,6 @@ To set up the project locally, follow these steps:
 
    The website should now be running at `http://localhost:4200`.
 
-### .gitignore
-
-Ensure that your `environment.ts` files are not tracked by version control by adding the following lines to your `.gitignore` file:
-
-```
-# Angular environment files
-/src/environments/environment.ts
-/src/environments/environment.development.ts
-```
 
 ## Deployment
 
