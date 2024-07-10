@@ -8,24 +8,25 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { CustomProvider, initializeAppCheck, provideAppCheck, ReCaptchaV3Provider } from '@angular/fire/app-check';
 import { isPlatformBrowser } from '@angular/common';
+import { WINDOW } from './window.injection-token';
+
 
 declare global {
-  // eslint-disable-next-line no-var
-  var FIREBASE_APPCHECK_DEBUG_TOKEN: boolean | string | undefined;
+  interface Window { FIREBASE_APPCHECK_DEBUG_TOKEN: boolean; }
 }
-self.FIREBASE_APPCHECK_DEBUG_TOKEN = environment.appCheckDebug;
+// (self as any).FIREBASE_APPCHECK_DEBUG_TOKEN = environment.appCheckDebug;
 
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes, 
+    provideRouter(routes,
       withInMemoryScrolling({
-        anchorScrolling: 'enabled', 
+        anchorScrolling: 'enabled',
         scrollPositionRestoration: 'enabled'
       }),
-    ), 
-    provideClientHydration(), 
-    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)), 
+    ),
+    provideClientHydration(),
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
     provideAppCheck((injector) => initializeAppCheck(getApp(), {
       provider: injector.get(RecaptchaBrowser).provider(environment.recaptcha3SiteKey),
@@ -41,12 +42,15 @@ export const appConfig: ApplicationConfig = {
 })
 export class RecaptchaBrowser {
   platformId = inject(PLATFORM_ID);
-  
+  window = inject(WINDOW);
+
   provider(siteKey: string) {
-      return isPlatformBrowser(this.platformId)
-          ? new ReCaptchaV3Provider(siteKey)
-          : new CustomProvider({
-              getToken: () => new Promise(() => { })
-          })
+    this.window.FIREBASE_APPCHECK_DEBUG_TOKEN = environment.appCheckDebug;
+
+    return isPlatformBrowser(this.platformId)
+      ? new ReCaptchaV3Provider(siteKey)
+      : new CustomProvider({
+        getToken: () => new Promise(() => { })
+      })
   }
 }

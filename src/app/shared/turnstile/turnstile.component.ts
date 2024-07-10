@@ -1,15 +1,3 @@
-import { InjectionToken } from '@angular/core';
-
-export const WINDOW = new InjectionToken<Window>('WindowToken', {
-  factory: () => {
-    if(typeof window !== 'undefined') {
-      return window
-    }
-    return new Window(); // does this work?
-  }
-});
-
-
 import {
   Component,
   AfterViewInit,
@@ -24,6 +12,7 @@ import {
 } from '@angular/core';
 import { TurnstileOptions } from './turnstile.interfaces';
 import { DOCUMENT } from '@angular/common';
+import { WINDOW } from '../../window.injection-token';
 
 declare global {
   interface Window {
