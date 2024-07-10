@@ -1,9 +1,8 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/ui/header.component';
 import { FooterComponent } from './shared/ui/footer.component';
-import { AppCheck } from '@angular/fire/app-check';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +19,5 @@ import { AppCheck } from '@angular/fire/app-check';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-  // private appCheck = inject(AppCheck);
-
   title = 'portfolio';
 }

@@ -1,5 +1,6 @@
 export const environment = {
-    production: false,
+    production: true,
+    appCheckDebug: false,
     recaptcha3SiteKey: '6LcO2AwqAAAAAKklmnR4E-L9mn2jD8EIdMHd-BVE',
     turnstileSiteKey: '0x4AAAAAAAexZARCghRsEh7-',
     firebaseConfig: {
