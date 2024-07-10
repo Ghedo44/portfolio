@@ -42,7 +42,7 @@ export class HomeComponent implements OnDestroy {
   onScroll(e: Event) {
     const section = this.sections().find((section) => {
       const rect = section.nativeElement.getBoundingClientRect();
-      return rect.top < window.innerHeight * 0.3 && rect.top > 0;
+      return rect.top < window.innerHeight * 0.3 && rect.top >= 0;
     });
 
     if (section) {
