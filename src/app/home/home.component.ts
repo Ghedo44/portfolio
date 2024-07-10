@@ -27,15 +27,11 @@ export class HomeComponent implements OnDestroy {
     name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
     email: new FormControl('', [Validators.required, Validators.email]),
     message: new FormControl('', [Validators.required]),
-    tokenControl: new FormControl(false, [Validators.requiredTrue])
+    tokenControl: new FormControl(null, [Validators.required])
   });
 
   constructor() {
     this.ss.generateTags({});
-
-    this.form.valueChanges.subscribe((value) => {
-      console.log(value);
-    });
   }
 
   @HostListener('window:scroll', ['$event'])
