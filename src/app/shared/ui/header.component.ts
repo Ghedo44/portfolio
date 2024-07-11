@@ -44,9 +44,9 @@ export class HeaderComponent {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll(e: Event) {
     if (window.scrollY > 5) {
-      this.header().nativeElement.classList.add('shadow');
+      this.header().nativeElement.classList.add('md:shadow');
     } else {
-      this.header().nativeElement.classList.remove('shadow');
+      this.header().nativeElement.classList.remove('md:shadow');
     }
   }
 }
