@@ -1,11 +1,10 @@
 <main class="container mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-        @for (item of [1,2,3,4,5,6,7,8,9,10]; let idx = $index; track idx) {
-            <app-project-card projectLink="/projects/introduction" imageUrl="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg">
-                <ng-container title>Project Title {{idx + 1}}</ng-container>
+        @for (project of projects; let idx = $index; track idx) {
+            <app-project-card projectLink="/projects/{{project.slug}}" [imageUrl]="project.image">
+                <ng-container title>{{project.title}}</ng-container>
                 <ng-container>
-                    <p>Brief description of the project and your role in it. Highlight
-                    the technologies and methodologies used.</p>
+                    <p>{{project.description}}</p>
                 </ng-container>
             </app-project-card>
         }

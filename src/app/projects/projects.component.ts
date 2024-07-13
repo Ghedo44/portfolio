@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { SeoService } from '../shared/data-access/seo.service';
 import { ProjectCardComponent } from '../shared/ui/project-card.component';
+import { projects } from './projects';
 
 @Component({
   selector: 'app-projects',
@@ -11,6 +12,8 @@ import { ProjectCardComponent } from '../shared/ui/project-card.component';
 })
 export class ProjectsComponent {
   ss = inject(SeoService);
+
+  projects = projects;
 
   constructor() {
     this.ss.generateTags({

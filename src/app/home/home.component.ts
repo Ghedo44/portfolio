@@ -9,6 +9,7 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { environment } from '../../environments/environment';
 import { HomeService } from './data-access/home.service';
 import { ProjectCardComponent } from '../shared/ui/project-card.component';
+import { projects } from '../projects/projects';
 
 @Component({
   selector: 'app-home',
@@ -31,6 +32,8 @@ export class HomeComponent implements OnDestroy {
   hs = inject(HomeService);
 
   siteKey = environment.turnstileSiteKey;
+
+  projects = projects;
 
   // Sections
   sections = viewChildren<ElementRef>('section');

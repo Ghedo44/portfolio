@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [RouterLink, NgOptimizedImage],
   template: `
-    <div [routerLink]="projectLink()" class="bg-white card shadow-md hover:scale-95 transition-all duration-300 group">
+    <div [routerLink]="projectLink()" class="h-full bg-white card shadow-md hover:scale-95 transition-all duration-300 group">
       <figure>
           <img [ngSrc]="imageUrl()" width="1792" height="1024"
               alt="Project 1" class="rotate-2 scale-105 group-hover:rotate-0 group-hover:scale-100 transition-all duration-300">
