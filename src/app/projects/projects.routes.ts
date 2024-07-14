@@ -12,13 +12,23 @@ export default  [
         data: { breadcrumb: 'Projects' },
         children: [
             {
-                path: 'introduction',
+                path: 'portfolio',
                 loadComponent: () => import('./project-pages/introduction.component').then(m => m.IntroductionComponent),
-                data: { breadcrumb: 'Introduction' }
+                data: { breadcrumb: 'Portfolio Website' }
+            },
+            {
+                path: 'space-missions',
+                loadComponent: () => import('./project-pages/introduction.component').then(m => m.IntroductionComponent),
+                data: { breadcrumb: 'Space Missions' }
+            },
+            {
+                path: 'ai-therapist',
+                loadComponent: () => import('./project-pages/introduction.component').then(m => m.IntroductionComponent),
+                data: { breadcrumb: 'AI Therapist' }
             },
             {
                 path: '**',
-                redirectTo: 'introduction',
+                redirectTo: 'portfolio',
             }
         ]
     },
