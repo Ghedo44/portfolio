@@ -33,7 +33,7 @@ export class HomeComponent implements OnDestroy {
 
   siteKey = environment.turnstileSiteKey;
 
-  projects = projects;
+  projects = projects.slice(0, 3);
 
   // Sections
   sections = viewChildren<ElementRef>('section');
