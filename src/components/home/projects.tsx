@@ -7,7 +7,7 @@ const projectsData = [
     title: "FormVibe",
     description:
       "FormVibe is a platform that allows users to create and share forms with their friends.",
-    link: "https://form-vibe.vercel.app/",
+    link: "/blog/hi",
     code: "https://github.com/yatharth1706/FormVibe",
     previewVideo: "/videos/FormVibeProjectPreview.mp4",
     technologies: [
@@ -97,7 +97,7 @@ function Projects() {
               </div>
               <div className="flex gap-2 mt-auto">
                 <Link href={project.link}>
-                  <Button variant="default">View</Button>
+                  <Button variant="default">Read Article</Button>
                 </Link>
                 <Link href={project.code}>
                   <Button variant="outline">Code</Button>

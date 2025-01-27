@@ -155,7 +155,7 @@ export function CustomDock() {
                                         <item.icon className="size-4" />
                                     </Link>
                                 </TooltipTrigger>
-                                <TooltipContent side="right">
+                                <TooltipContent side={isMobile ? "top" : "right"}>
                                     <p>{item.label}</p>
                                 </TooltipContent>
                             </Tooltip>
@@ -178,7 +178,7 @@ export function CustomDock() {
                                         <social.icon className="size-4" />
                                     </Link>
                                 </TooltipTrigger>
-                                <TooltipContent side="right">
+                                <TooltipContent side={isMobile ? "top" : "right"}>
                                     <p>{name}</p>
                                 </TooltipContent>
                             </Tooltip>
@@ -202,7 +202,7 @@ export function CustomDock() {
                                     <span className="sr-only">Toggle theme</span>
                                 </Button>
                             </TooltipTrigger>
-                            <TooltipContent side="right">
+                            <TooltipContent side={isMobile ? "top" : "right"}>
                                 <p>Theme</p>
                             </TooltipContent>
                         </Tooltip>

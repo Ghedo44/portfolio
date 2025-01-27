@@ -12,45 +12,16 @@ interface WorkExperienceItem {
 
 const workExperienceData: WorkExperienceItem[] = [
   {
-    startDate: "August 2024",
-    endDate: "Present",
-    companyName: "Topo",
-    jobTitle: "Senior Software Engineer",
+    startDate: "February 2020",
+    endDate: "May 2020",
+    companyName: "Univeristy of Bozen-Bolzano",
+    jobTitle: "Research Assistant",
     description: [
-      "Building AI SDRs and training them to help sales teams close deals faster.",
-    ],
-  },
-  {
-    startDate: "December 2023",
-    endDate: "August 2024",
-    companyName: "Artisan AI",
-    jobTitle: "Senior Software Engineer",
-    description: [
-      "Spearheaded the integration of multiple CRMs including HubSpot and Salesforce into the platform, enhancing lead management efficiency.",
-      "Achieved a remarkable 99% improvement in email deliverability through meticulous optimization strategies.",
-      "Implemented advanced techniques to enhance email quality and refine email filtering mechanisms, resulting in a more streamlined communication process.",
-      "Developed comprehensive analytics infrastructure, enabling real-time monitoring and analysis of all lead and email-related activities within the platform.",
-    ],
-  },
-  {
-    startDate: "June 2023",
-    endDate: "December 2023",
-    companyName: "LeadSquared",
-    jobTitle: "Senior Software Engineer",
-    description: [
-      "Automated release pipeline that helps faster releases and 100% efficiency.",
-      "Automated Region Setup Infra for LeadSquared to create all its infra in new region on requirement basis. Automating it via Terraform, AWS, RDS, Powershell scripts.",
-    ],
-  },
-  {
-    startDate: "June 2021",
-    endDate: "June 2023",
-    companyName: "LeadSquared",
-    jobTitle: "Software Engineer",
-    description: [
-      "Part of DevOps Portal team which helps in automating infra management of LeadSquared",
-      "Automated RDS Cluster upgrade / downgrade activity with very less downtime around 1-10 seconds in production",
-      "Devised notification system for the platform supporting both web and email notifications on based of certain actions custom selected by user",
+      "Conducted various research activities and data analysis",
+      "Collaborated with team members to develop research methodologies",
+      "Assisted in the preparation of research reports and presentations",
+      "Participated in laboratory work and data collection",
+      "Supported the research team in daily tasks and project management"
     ],
   },
 ];
@@ -64,9 +35,8 @@ const WorkExperience: React.FC = () => {
         {workExperienceData.map((item, index) => (
           <li
             key={index}
-            className={`mb-10 ms-4 ${
-              index === workExperienceData.length - 1 ? "mb-0" : ""
-            }`}
+            className={`mb-10 ms-4 ${index === workExperienceData.length - 1 ? "mb-0" : ""
+              }`}
           >
             <div className="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -start-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
             <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">

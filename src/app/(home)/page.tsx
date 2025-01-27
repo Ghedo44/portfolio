@@ -23,7 +23,7 @@ export default function Home() {
         <Intro />
         <Education />
         <Skills />
-        <SpaceAnimation />
+        {/* <SpaceAnimation /> */}
         <Projects />
         <WorkExperience />
       </ParallaxProvider>
