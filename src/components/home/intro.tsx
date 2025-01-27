@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ProfilePic from "@/app/images/yatharth.png";
+import ProfilePic from "@/images/galaxy.png";
 
 export default function Intro() {
   return (
@@ -15,14 +15,13 @@ export default function Intro() {
         </p>
       </div>
       <div className="flex items-center justify-center md:mb-0">
-        {/* <Image
+        <Image
           src={ProfilePic}
           alt="Yatharth"
           width={160}
           height={160}
-          className="border-2 border-gray-100 rounded-full object-cover"
-        /> */}
-        <div className="rounded-full bg-primary w-[160px] h-[160px]"></div>
+          className="border-2 border-primary rounded-full object-cover"
+        />
       </div>
     </div>
   );
