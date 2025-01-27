@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { CustomDock } from "@/components/custom-dock";
 import { Button } from "@/components/ui/button";
@@ -35,14 +35,11 @@ export default function RootLayout({
           defaultTheme="system"
           enableSystem
         >
-          <main className="flex min-h-screen flex-col md:gap-12 gap-8 md:p-24 p-10 relative overflow-hidden lg:w-7/12 sm:w-full mx-auto">
-            <div className="fixed inset-0 pointer-events-none light-mode-fade-bottom dark:fade-bottom z-10 bg-white/10 dark:bg-black/10" />
-            <CustomDock />
-            {children}
-          </main>
-        <footer className="mt-8 border-t py-6 text-center">
+          <CustomDock />
+          {children}
+          <footer className="mt-8 border-t py-6 text-center">
           <div className="container mx-auto flex flex-col items-center space-y-2">
-            <h2 className="text-xl font-bold">Aerospace Engineering Portfolio</h2>
+            <h2 className="text-xl font-bold">Aerospace Engineering</h2>
             <p className="text-sm text-muted-foreground">
               Showcasing innovations and achievements in the field of flight.
             </p>

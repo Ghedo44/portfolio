@@ -106,7 +106,7 @@ export function CustomDock() {
     const [lastScrollY, setLastScrollY] = useState(0);
 
     useEffect(() => {
-        const handleResize = () => setIsMobile(window.innerWidth < 1050);
+        const handleResize = () => setIsMobile(window.innerWidth < 1024);
         handleResize();
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
