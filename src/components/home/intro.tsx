@@ -7,10 +7,11 @@ export default function Intro() {
       <div className="flex flex-col gap-2 w-full lg:w-4/5">
         <h1 className="text-4xl font-bold mb-4">Hi! I&apos;m Ghedo.</h1>
         <p className="text-base text-gray-800 dark:text-gray-300">
-          Seasoned Fullstack Engineer with 4+ years in startups. I excel in
-          building applications from scratch to production-ready. My expertise
-          spans across frontend, backend, and full-stack development, with a
-          knack for system design and scalability.
+          I am an aerospace engineering student with a passion for designing and building innovative 
+          aircraft and spacecraft. My journey in aerospace engineering has equipped me with a strong 
+          foundation in aerodynamics, propulsion systems, and structural analysis. I am dedicated to
+           pushing the boundaries of what is possible in the field of aerospace and am excited to 
+           contribute to the future of aviation and space exploration.
         </p>
       </div>
       <div className="flex items-center justify-center md:mb-0">

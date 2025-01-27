@@ -135,7 +135,8 @@ export function CustomDock() {
                 isMobile
                     ? "fixed bottom-4 left-1/2 -translate-x-1/2 flex items-center transition-transform duration-300"
                     : "fixed left-40 top-0 bottom-0 w-24 flex items-center",
-                isMobile && hideDock && "translate-y-full"
+                isMobile && hideDock && "translate-y-full",
+                "z-50"
             )}
         >
             <TooltipProvider>

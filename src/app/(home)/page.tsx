@@ -1,4 +1,7 @@
+import Education from "@/components/home/education";
 import Intro from "@/components/home/intro";
+import Projects from "@/components/home/projects";
+import Skills from "@/components/home/skills";
 import SpaceAnimation from "@/components/home/space-animation";
 import WorkExperience from "@/components/home/work-experience";
 import Meteors from "@/components/meteors";
@@ -18,8 +21,10 @@ export default function Home() {
       
       <ParallaxProvider>
         <Intro />
-        <WorkExperience />
+        <Education />
+        <Skills />
         <SpaceAnimation />
+        <Projects />
         <WorkExperience />
       </ParallaxProvider>
     </>
