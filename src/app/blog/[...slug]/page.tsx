@@ -138,7 +138,7 @@ export default async function BlogPage(props: ResourcesPageProps) {
         <DocsPager doc={doc} />
       </div>
       <div className="hidden text-sm xl:block">
-        <div className="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] pt-4">
+        <div className="sticky top-16 -mt-10 pt-4">
           <ScrollArea className="h-full pb-10">
             {toc && <DashboardTableOfContents toc={toc} />}
           </ScrollArea>
