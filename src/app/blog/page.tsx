@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Posts } from "@/components/blog/posts";
+import { siteConfig } from "@/config/site"
 
 export default function BlogPage() {
     return (
@@ -6,7 +7,7 @@ export default function BlogPage() {
             <h1 className="text-4xl font-bold mb-4">Blog</h1>
             <p>Welcome to the blog page!</p>
 
-            <Link href="/blog/hi">Post</Link>
+            <Posts config={siteConfig} />
         </div>
     );
 }

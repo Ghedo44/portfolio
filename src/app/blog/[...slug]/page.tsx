@@ -135,7 +135,7 @@ export default async function BlogPage(props: ResourcesPageProps) {
         <article className="pb-12 pt-8">
           {doc.content}
         </article>
-        {/* <DocsPager doc={doc} /> */}
+        <DocsPager doc={doc} />
       </div>
       <div className="hidden text-sm xl:block">
         <div className="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] pt-4">
