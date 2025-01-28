@@ -7,7 +7,7 @@ export default function BlogPage() {
             <h1 className="text-4xl font-bold mb-4">Blog</h1>
             <p>Welcome to the blog page!</p>
 
-            <Posts config={siteConfig} />
+            <Posts posts={siteConfig.posts} />
         </div>
     );
 }

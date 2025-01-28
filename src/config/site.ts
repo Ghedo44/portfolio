@@ -1,6 +1,7 @@
 import { type NavItem, type NavItemFooter } from "@/types"
 import { MainNavItem, SidebarNavItem } from "@/types/nav"
-import { resourcesLinks } from "@/config/posts";
+import { homePagePosts, allPosts } from "@/config/posts";
+import { Post } from "@/types/blog";
 
 const links = {
   github:
@@ -32,10 +33,9 @@ export interface SiteConfig {
   keywords: string[];
   navItems: NavItem[];
   mainNav: MainNavItem[];
-  navItemsMobile: NavItem[];
   navItemsFooter: NavItemFooter[];
-  navItemsLandingFooter: NavItemFooter[];
-  sidebarNav: SidebarNavItem[];
+  homePagePosts: Post[];
+  posts: Post[];
 }
 
 export const siteConfig: SiteConfig = {
@@ -88,7 +88,6 @@ export const siteConfig: SiteConfig = {
       href: "/resources",
     },
   ],
-  navItemsMobile: [],
   navItemsFooter: [
     {
       title: "Legal",
@@ -136,67 +135,6 @@ export const siteConfig: SiteConfig = {
       ],
     },
   ] satisfies NavItemFooter[],
-  navItemsLandingFooter: [
-    {
-      title: "Company",
-      items: [
-        {
-          title: "About",
-          href: "/about",
-          external: false,
-        },
-        {
-          title: "Privacy",
-          href: "/privacy-policy",
-          external: false,
-        },
-        {
-          title: "Terms",
-          href: "/tos",
-          external: false,
-        },
-      ],
-    },
-    {
-      title: "Support",
-      items: [
-        {
-          title: "FAQ",
-          href: "/#faq",
-          external: false,
-        },
-        {
-          title: "Features",
-          href: "/#features",
-          external: false,
-        },
-        {
-          title: "Contact",
-          href: "/#contact-section",
-          external: false,
-        },
-      ],
-    },
-    {
-      title: "Inspiration",
-      items: [
-        {
-          title: "Resources",
-          href: "/resources",
-          external: false,
-        },
-        {
-          title: "Dashboard",
-          href: "/dashboard",
-          external: false,
-        },
-        {
-          title: "Economy",
-          href: "/economy",
-          external: false,
-        },
-      ],
-    },
-  ] satisfies NavItemFooter[],
-  sidebarNav: resourcesLinks satisfies SidebarNavItem[],
+  homePagePosts: homePagePosts satisfies Post[],
+  posts: allPosts satisfies Post[],
 }
