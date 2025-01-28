@@ -1,16 +1,12 @@
+import Contact from "@/components/home/contact";
 import Education from "@/components/home/education";
+import Hobbies from "@/components/home/hobbies";
 import Intro from "@/components/home/intro";
 import Projects from "@/components/home/projects";
 import Skills from "@/components/home/skills";
-import SpaceAnimation from "@/components/home/space-animation";
 import WorkExperience from "@/components/home/work-experience";
 import Meteors from "@/components/meteors";
 import { ParallaxProvider } from "@/components/parallax-provider";
-import dynamic from "next/dynamic";
-
-// const Meteors = dynamic(() => import("@/components/meteors"), {
-//   // ssr: false,
-// });
 
 export default function Home() {
   return (
@@ -26,6 +22,8 @@ export default function Home() {
         {/* <SpaceAnimation /> */}
         <Projects />
         <WorkExperience />
+        <Hobbies />
+        <Contact />
       </ParallaxProvider>
     </>
 

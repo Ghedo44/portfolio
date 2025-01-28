@@ -17,6 +17,7 @@ const links = {
 
 export const siteConfig: SiteConfig = {
   name: "Federico Ghedini",
+  email: "federico.ghedini@mail.polimi.it",
   description:
     "I'm an aerospace engineering student and a self-taught web developer.",
   links,

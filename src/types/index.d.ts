@@ -3,6 +3,7 @@ import { Post } from "@/types/blog"
 
 export interface SiteConfig {
   name: string;
+  email: string;
   description: string;
   links: {
     github: string;
