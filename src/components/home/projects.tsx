@@ -1,9 +1,10 @@
-import Link from "next/link";
 import React from "react";
-import { Button } from "@/components/ui/button";
 import { Post } from "@/types/blog";
 import { siteConfig } from "@/config/site";
 import { PostCard } from "../post-card";
+import Link from "next/link";
+import { Button } from "../ui/button";
+import { ChevronRight } from "lucide-react";
 
 const projectsData: Post[] = siteConfig.homePagePosts;
 
@@ -15,6 +16,12 @@ function Projects() {
         {projectsData.map((project, index) => (
           <PostCard key={index} post={project} />
         ))}
+      </div>
+      {/* Link to Blog */}
+      <div className="flex justify-end">
+        <Button variant="ghost" asChild>
+          <Link href="/blog">View all projects <ChevronRight /></Link>
+        </Button>
       </div>
     </div>
   );

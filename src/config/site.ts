@@ -1,93 +1,65 @@
-import { type NavItem, type NavItemFooter } from "@/types"
-import { MainNavItem, SidebarNavItem } from "@/types/nav"
+import { type NavItemFooter } from "@/types/nav"
 import { homePagePosts, allPosts } from "@/config/posts";
 import { Post } from "@/types/blog";
+import { HomeIcon, PencilIcon } from "lucide-react";
+import { Icons } from "@/components/icons";
+import { SiteConfig } from "@/types";
 
 const links = {
-  github:
-    "https://github.com/pjborowiecki/SAASY-LAND-Next-14-Starters-With-Authentication-And-Database-Implemented",
-  twitter: "https://twitter.com/pjborowiecki",
-  linkedin: "https://www.linkedin.com/in/pjborowiecki",
+  github: "",
+  twitter: "",
+  linkedin: "",
   discord: "",
-  authorsWebsite: "https://pjborowiecki.com",
-  authorsGitHub: "https://github.com/pjborowiecki",
-  openGraphImage: "https://saasyland.com/images/opengraph-image.png",
-}
-
-export interface SiteConfig {
-  name: string;
-  description: string;
-  links: {
-    github: string;
-    twitter: string;
-    linkedin: string;
-    discord: string;
-    authorsWebsite: string;
-    authorsGitHub: string;
-    openGraphImage: string;
-  };
-  url: string;
-  ogImage: string;
-  author: string;
-  hostingRegion: string;
-  keywords: string[];
-  navItems: NavItem[];
-  mainNav: MainNavItem[];
-  navItemsFooter: NavItemFooter[];
-  homePagePosts: Post[];
-  posts: Post[];
+  authorsWebsite: "",
+  authorsGitHub: "",
+  openGraphImage: "",
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Financial Corner",
+  name: "Federico Ghedini",
   description:
-    "An open-source starter for Next.js 14 full-stack projects with advanced authentication and several database configurations. The aim of this project is to provide a solid foundation for faster building and launching SaaS products, marketing sites, blogs, and more.",
+    "I'm an aerospace engineering student and a self-taught web developer.",
   links,
-  url: "https://saasyland.com",
+  url: "https://ghedo.me",
   ogImage: links.openGraphImage,
-  author: "pjborowiecki",
-  hostingRegion: "fra1",
-  keywords: ["SaaS", "Next.js", "Template"],
-  navItems: [
-    {
-      title: "About",
-      href: "/about",
+  author: "Federico Ghedini",
+  // hostingRegion: "fra1",
+  keywords: ["Aerospace Engineer", "Federico Ghedini"],
+  mainNav: {
+    navbar: [
+      { href: "/", icon: HomeIcon, label: "Home" },
+      { href: "/blog", icon: PencilIcon, label: "Blog" },
+    ],
+    contact: {
+      social: {
+        GitHub: {
+          name: "GitHub",
+          url: "https://github.com/ghedo44",
+          icon: Icons.github,
+        },
+        LinkedIn: {
+          name: "LinkedIn",
+          url: "https://www.linkedin.com/in/federico-ghedini/",
+          icon: Icons.linkedin,
+        },
+      //   Twitter: {
+      //     name: "X",
+      //     url: "https://x.com/",
+      //     icon: Icons.x,
+      //   },
+        Email: {
+          name: "Send Email",
+          url: "mailto:federico.ghedini@mail.polimi.it",
+          icon: Icons.email,
+        },
+      //   Youtube: {
+      //     name: "YouTube",
+      //     url: "https://www.youtube.com/",
+      //     icon: Icons.youtube,
+      //   },
+      },
     },
-    {
-      title: "Features",
-      href: "/#features",
-    },
-    {
-      title: "Pricing",
-      href: "/#pricing",
-    },
-    {
-      title: "FAQ",
-      href: "/#faq",
-    },
-    {
-      title: "Learn",
-      href: "/resources",
-    },
-  ] satisfies NavItem[],
-  mainNav: [
-    {
-      title: "Dashboard",
-      href: "/dashboard",
-    },
-    {
-      title: "Stocks",
-      href: "/stocks",
-    },
-    {
-      title: "Economy",
-      href: "/economy",
-    },
-    {
-      title: "Resources",
-      href: "/resources",
-    },
-  ],
+  },
   navItemsFooter: [
     {
       title: "Legal",

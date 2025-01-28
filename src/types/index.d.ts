@@ -1,21 +1,25 @@
-export interface NavItem {
-  title: string
-  href: string
-  disabled?: boolean
-}
+import { MainNav, NavItemFooter } from "@/types/nav"
+import { Post } from "@/types/blog"
 
-export interface NavItemFooter {
-  title: string
-  items: {
-    title: string
-    href: string
-    external?: boolean
-  }[]
+export interface SiteConfig {
+  name: string;
+  description: string;
+  links: {
+    github: string;
+    twitter: string;
+    linkedin: string;
+    discord: string;
+    authorsWebsite: string;
+    authorsGitHub: string;
+    openGraphImage: string;
+  };
+  url: string;
+  ogImage: string;
+  author: string;
+  // hostingRegion: string;
+  keywords: string[];
+  mainNav: MainNav;
+  navItemsFooter: NavItemFooter[];
+  homePagePosts: Post[];
+  posts: Post[];
 }
-
-export interface BlogPostParamsProps {
-  params: {
-    slug: string[]
-  }
-}
-
