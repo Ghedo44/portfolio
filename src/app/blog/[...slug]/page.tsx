@@ -108,14 +108,14 @@ export default async function BlogPage(props: ResourcesPageProps) {
         </div>
         {doc.frontmatter.links ? (
           <div className="flex items-center space-x-2 pt-4">
-            {doc.frontmatter.links?.doc && (
+            {doc.frontmatter.links?.github && (
               <Link
-                href={doc.frontmatter.links.doc}
+                href={doc.frontmatter.links.github}
                 target="_blank"
                 rel="noreferrer"
                 className={cn(badgeVariants({ variant: "secondary" }), "gap-1")}
               >
-                Docs
+                Github Code
                 <ExternalLinkIcon className="h-3 w-3" />
               </Link>
             )}

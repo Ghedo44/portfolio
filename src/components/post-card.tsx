@@ -32,9 +32,11 @@ export function PostCard({ post }: { post: Post }) {
                     <Link href={post.link}>
                         <Button variant="default">Read Article</Button>
                     </Link>
-                    <Link href={post.code}>
-                        <Button variant="outline">Code</Button>
-                    </Link>
+                    {post.githubLink && (
+                        <Link href={post.githubLink} target="_blank" rel="noreferrer">
+                            <Button variant="outline">Github Code</Button>
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>

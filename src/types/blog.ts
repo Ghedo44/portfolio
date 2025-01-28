@@ -3,7 +3,7 @@ export interface Post {
     description: string;
     link: string;
     slug: string;
-    code: string;
+    githubLink?: string;
     previewVideo: string;
     technologies: string[];
   }
