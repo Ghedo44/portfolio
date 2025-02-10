@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ProfilePic from "@/images/galaxy.png";
+// import ProfilePic from "@/../images/galaxy.png";
 
 export default function Intro() {
   return (
@@ -16,7 +16,7 @@ export default function Intro() {
       </div>
       <div className="flex items-center justify-center md:mb-0">
         <Image
-          src={ProfilePic}
+          src="/images/galaxy.png"
           alt="Yatharth"
           width={160}
           height={160}

@@ -8,7 +8,7 @@ export const homePagePosts: Post[] = [
         link: "/blog/hi",
         slug: "hi",
         githubLink: "https://github.com/",
-        previewVideo: "/videos/FormVibeProjectPreview.mp4",
+        previewVideo: "/videos/analisi_missioni_spaziali.mp4",
         technologies: [
             "Matlab",
         ],
@@ -20,7 +20,7 @@ export const homePagePosts: Post[] = [
         link: "/blog/portfolio-website",
         slug: "portfolio-website",
         githubLink: "https://github.com/Ghedo44/portfolio",
-        previewVideo: "/videos/EmojiGitPreview.mp4",
+        previewVideo: "/videos/portfolio.mp4",
         technologies: ["TypeScript", "Node.js", "Git", "GitHub Pages", "Next.js", "Tailwind CSS"],
     },
 ];
@@ -33,7 +33,7 @@ export const allPosts: Post[] = [
         link: "/blog/hi",
         slug: "hi",
         githubLink: "https://github.com/",
-        previewVideo: "/videos/FormVibeProjectPreview.mp4",
+        previewVideo: "/videos/analisi_missioni_spaziali.mp4",
         technologies: [
             "Matlab",
         ],
@@ -45,7 +45,7 @@ export const allPosts: Post[] = [
         link: "/blog/portfolio-website",
         slug: "portfolio-website",
         githubLink: "https://github.com/Ghedo44/portfolio",
-        previewVideo: "/videos/EmojiGitPreview.mp4",
+        previewVideo: "/videos/portfolio.mp4",
         technologies: ["TypeScript", "Node.js", "Git", "GitHub Pages", "Next.js", "Tailwind CSS"],
     },
 ];

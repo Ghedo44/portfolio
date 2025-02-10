@@ -3,6 +3,7 @@ import { Icons } from "../icons";
 import { Button } from "../ui/button";
 import { MapPin } from "lucide-react";
 import { siteConfig } from "@/config/site";
+import { InstagramLogoIcon } from "@radix-ui/react-icons";
 
 export default function Contact() {
     return (
@@ -30,18 +31,18 @@ export default function Contact() {
             {/* Social Media Buttons */}
             <div className="flex justify-center gap-4 mt-6">
                 <Button variant="ghost" asChild>
-                    <Link href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://github.com/ghedo44" target="_blank" rel="noopener noreferrer">
                         <Icons.gitHub /> GitHub
                     </Link>
                 </Button>
                 <Button variant="ghost" asChild>
-                    <Link href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
+                    <Link href="https://linkedin.com/in/federico-ghedini" target="_blank" rel="noopener noreferrer">
                         <Icons.linkedin /> LinkedIn
                     </Link>
                 </Button>
                 <Button variant="ghost" asChild>
-                    <Link href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer">
-                        <Icons.facebook /> Instagram
+                    <Link href="https://www.instagram.com/ghedo44/" target="_blank" rel="noopener noreferrer">
+                        <InstagramLogoIcon /> Instagram
                     </Link>
                 </Button>
             </div>
