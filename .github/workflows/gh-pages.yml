@@ -38,21 +38,17 @@ jobs:
       - name: Build Next.js
         run: npm run build
 
-      - name: List build output
-        run: ls -la ./out
-
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: nextjs-build
+          name: out
           path: './out'
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
         with:
-          artifact_name: nextjs-build
-
+          artifact_name: out
