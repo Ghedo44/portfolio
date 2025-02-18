@@ -1,8 +1,10 @@
 ---
 title: Analisys of Space Mission: Finding the Balance Between Time and Energy
-description: When planning a satellite mission, one of the key challenges is transferring the spacecraft from one orbit to another efficiently. This involves finding a trajectory that minimizes both the energy required (measured as delta-v, or \(\Delta v\)) and the time needed to complete the maneuver. My latest research focuses on this problem, specifically analyzing the transition between two medium Earth orbits (MEO) using MATLAB for simulation and optimization.
+description: When planning a satellite mission, one of the key challenges is transferring the spacecraft from one orbit to another efficiently. This involves finding a trajectory that minimizes both the energy required and the time needed to complete the maneuver.
 component: true
 ---
+
+When planning a satellite mission, one of the key challenges is transferring the spacecraft from one orbit to another efficiently. This involves finding a trajectory that minimizes both the energy required (measured as delta-v, or \(\Delta v\)) and the time needed to complete the maneuver. My latest research focuses on this problem, specifically analyzing the transition between two medium Earth orbits (MEO) using MATLAB for simulation and optimization.
 
 ## Understanding the Transfer Challenge
 
@@ -20,8 +22,8 @@ One of the most straightforward approaches consists of three main maneuvers:
 
 This strategy ensures that each maneuver is executed at a point where the required \(\Delta v\) is minimized, making it a practical but not necessarily optimal choice.
 
-### 2. Efficient Direct Transfer (Lambert’s Solution)
-An alternative approach involves solving Lambert’s problem, which finds an optimal transfer trajectory between two fixed points in space for a given flight time. By iterating over possible solutions, an orbit that requires the least \(\Delta v\) was identified, resulting in a highly fuel-efficient transfer.
+### 2. Efficient Direct Transfer (Lambert's Solution)
+An alternative approach involves solving Lambert's problem, which finds an optimal transfer trajectory between two fixed points in space for a given flight time. By iterating over possible solutions, an orbit that requires the least \(\Delta v\) was identified, resulting in a highly fuel-efficient transfer.
 
 ### 3. High-Speed Transfer (Hyperbolic Trajectory)
 For missions where time is critical, a hyperbolic trajectory was analyzed. This method completes the transfer in just 45 minutes but demands a significantly higher \(\Delta v\) (18.3 km/s), making it impractical for most satellite maneuvers.
