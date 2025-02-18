@@ -4,8 +4,8 @@ export const homePagePosts: Post[] = [
     {
         title: "Analysis of Space Missions",
         description:
-            "This is a blog post where I analyze the space missions that have been conducted by different countries.",
-        link: "/blog/hi",
+            "When planning a satellite mission, one of the key challenges is transferring the spacecraft from one orbit to another efficiently. This involves finding a trajectory that minimizes both the energy required and the time needed to complete the maneuver.",
+        link: "/blog/analisys-of-space-mission",
         slug: "hi",
         githubLink: "https://github.com/",
         previewVideo: "/videos/analisi_missioni_spaziali.mp4",
@@ -29,8 +29,8 @@ export const allPosts: Post[] = [
     {
         title: "Analysis of Space Missions",
         description:
-            "This is a blog post where I analyze the space missions that have been conducted by different countries.",
-        link: "/blog/hi",
+            "When planning a satellite mission, one of the key challenges is transferring the spacecraft from one orbit to another efficiently. This involves finding a trajectory that minimizes both the energy required and the time needed to complete the maneuver.",
+        link: "/blog/analisys-of-space-mission",
         slug: "hi",
         githubLink: "https://github.com/",
         previewVideo: "/videos/analisi_missioni_spaziali.mp4",

@@ -1,0 +1,41 @@
+---
+title: Analisys of Space Mission: Finding the Balance Between Time and Energy
+description: When planning a satellite mission, one of the key challenges is transferring the spacecraft from one orbit to another efficiently. This involves finding a trajectory that minimizes both the energy required (measured as delta-v, or \(\Delta v\)) and the time needed to complete the maneuver. My latest research focuses on this problem, specifically analyzing the transition between two medium Earth orbits (MEO) using MATLAB for simulation and optimization.
+component: true
+---
+
+## Understanding the Transfer Challenge
+
+The objective of this study was to define and compare various transfer strategies between an initial and a final orbit. Each orbit is characterized by specific Keplerian elements, such as semi-major axis, eccentricity, inclination, and argument of periapsis. The transfer involves modifying these parameters by applying a series of impulses at strategically chosen points.
+
+A crucial aspect of the problem is balancing fuel consumption with mission duration. While minimizing \(\Delta v\) is essential for conserving fuel, a shorter transfer time is often desirable to improve mission efficiency.
+
+## Key Strategies Analyzed
+
+### 1. Standard Four-Impulse Strategy
+One of the most straightforward approaches consists of three main maneuvers:
+- **Change of orbital plane** at a node where the inclination adjustment is most efficient.
+- **Apse line rotation** to align the periapsis of the transfer orbit with that of the target orbit.
+- **Bitangent transfer** to match the size and shape of the final orbit.
+
+This strategy ensures that each maneuver is executed at a point where the required \(\Delta v\) is minimized, making it a practical but not necessarily optimal choice.
+
+### 2. Efficient Direct Transfer (Lambert’s Solution)
+An alternative approach involves solving Lambert’s problem, which finds an optimal transfer trajectory between two fixed points in space for a given flight time. By iterating over possible solutions, an orbit that requires the least \(\Delta v\) was identified, resulting in a highly fuel-efficient transfer.
+
+### 3. High-Speed Transfer (Hyperbolic Trajectory)
+For missions where time is critical, a hyperbolic trajectory was analyzed. This method completes the transfer in just 45 minutes but demands a significantly higher \(\Delta v\) (18.3 km/s), making it impractical for most satellite maneuvers.
+
+## Comparing Results
+The study revealed a range of possible strategies, each with different trade-offs:
+- The **standard approach** provides a structured, methodical solution but does not always minimize fuel consumption.
+- The **Lambert-based transfer** significantly reduces \(\Delta v\) (down to 4.0039 km/s), making it the most fuel-efficient option.
+- The **hyperbolic transfer** is the fastest but is too energy-intensive for practical use.
+
+Ultimately, the best strategy depends on mission priorities. If fuel economy is paramount, the Lambert solution is ideal. If time is more critical, alternative strategies may be preferable.
+
+## Conclusion
+Orbital transfers are a complex problem that requires balancing energy and time. Using MATLAB simulations, my research explored multiple strategies, demonstrating how different approaches yield vastly different efficiencies. Future work could extend these analyses to incorporate real-world constraints such as non-impulsive thrust and gravitational perturbations.
+
+Understanding these trade-offs allows mission planners to make informed decisions, ensuring that satellites reach their intended orbits in the most efficient way possible. If you're interested in more insights into orbital mechanics and space mission planning, stay tuned for future posts!
+
